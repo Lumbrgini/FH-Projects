@@ -1,0 +1,9 @@
+{% if messages is defined and messages|length > 0 %}
+    <div class="alert alert-danger mt-3" role="alert">
+        <ul class="mb-0">
+            {% for error in messages %}
+                <li>{{ error }}</i></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

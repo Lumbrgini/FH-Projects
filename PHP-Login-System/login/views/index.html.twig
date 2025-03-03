@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block title %}UE05 Login{% endblock %}
+
+{% block main %}
+    <hgroup>
+        <h1>UE05 Login</h1>
+        <p class="lead">Log into a site using username and password.</p>
+    </hgroup>
+
+    <h2>GET /</h2>
+    <p>This is the main page. Use it to access the different parts of the exercise.</p>
+
+    <div class="list-group">
+        <a href="{{ url_for("/main") }}" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <svg class="bi-2 align-self-center flex-shrink-0">
+                <use href="{{ get_base_path() }}/../views/images/bootstrap-icons.svg#shield-lock"></use>
+            </svg>
+            <div class="flex-fill">
+                <h6 class="mb-0">GET /main</h6>
+                <p class="mb-0 opacity-75">The main page which is only accessible after a successful login.</p>
+            </div>
+        </a>
+        <a href="{{ url_for("/login") }}" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <svg class="bi-2 align-self-center flex-shrink-0">
+                <use href="{{ get_base_path() }}/../views/images/bootstrap-icons.svg#door-open"></use>
+            </svg>
+            <div class="flex-fill">
+                <h6 class="mb-0">GET /login</h6>
+                <p class="mb-0 opacity-75">The login page to submit e-mail address and password.</p>
+            </div>
+        </a>
+        <a href="{{ url_for("/logout") }}" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <svg class="bi-2 align-self-center flex-shrink-0">
+                <use href="{{ get_base_path() }}/../views/images/bootstrap-icons.svg#door-closed"></use>
+            </svg>
+            <div>
+                <h6 class="mb-0">GET /logout</h6>
+                <p class="mb-0 opacity-75">Perform a logout.</p>
+            </div>
+        </a>
+        <a href="{{ url_for("/createdb") }}"
+           class="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <svg class="bi-2 align-self-center flex-shrink-0">
+                <use href="{{ get_base_path() }}/../views/images/bootstrap-icons.svg#tools"></use>
+            </svg>
+            <div>
+                <h6 class="mb-0">GET /createdb</h6>
+                <p class="mb-0 opacity-75">Create the database "ue04_05_login" with a table "user" and two users
+                    called "user1@email.com" and "user2@email.com", each with the password "geheim". If your database
+                    scheme, table and user(s) from exercise 4 still exist, you can also use them.</p>
+            </div>
+        </a>
+    </div>
+{% endblock main %}

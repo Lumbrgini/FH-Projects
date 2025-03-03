@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}UE08 REST & AJAX: AJAX Client{% endblock %}
+
+{% block main %}
+    <hgroup>
+        <h1>UE08 REST & AJAX</h1>
+        <p class="lead">Register a new user without a page reload.</p>
+    </hgroup>
+
+    <h2>AJAX Client</h2>
+    <p>This is the AJAX client that sends an asynchronous <code>POST /adduser</code> request to the REST server.</p>
+    <p>The result of the request will be displayed in the blue box at the bottom without a page reload.</p>
+
+    <div class="border p-3 mt-5">
+        <h3>Add a New User</h3>
+        <form method="post" action="{{ get_base_path() }}/../../rest-server/public/adduser">
+            <div class="mb-3">
+                <label for="usernameInput" class="form-label">Your Username</label>
+                <input type="text" class="form-control" id="usernameInput" name="username"
+                       placeholder="Your username" aria-describedby="usernameHelp" autocomplete="username">
+                <div id="usernameHelp" class="form-text">Please enter your username.</div>
+            </div>
+            <div class="mb-3">
+                <label for="nameInput" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="nameInput" name="name"
+                       placeholder="Your first or full name" aria-describedby="nameHelp" autocomplete="name">
+                <div id="nameHelp" class="form-text">Please enter your name.</div>
+            </div>
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Your E-Mail Address</label>
+                <input type="email" class="form-control" id="emailInput" name="email"
+                       placeholder="Your e-mail address" aria-describedby="emailHelp" autocomplete="email">
+                <div id="emailHelp" class="form-text">Please enter your email address.</div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Add User</button>
+        </form>
+    </div>
+    <div class="border p-3 mt-3">
+        <h3>Status of the Form Submission</h3>
+        <div class="alert alert-info" role="alert" id="status"></div>
+    </div>
+{% endblock main %}
+{% block scripts %}
+    <script src="{{ get_base_path() }}/js/main.js"></script>
+{% endblock scripts %}

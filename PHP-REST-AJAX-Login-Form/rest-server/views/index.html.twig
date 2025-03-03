@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}UE08 REST & AJAX: REST Server{% endblock %}
+
+{% block main %}
+    <hgroup>
+        <h1>UE08 REST & AJAX</h1>
+        <p class="lead">Register a new user without a page reload.</p>
+    </hgroup>
+
+    <h2>REST Server</h2>
+    <p>This is the REST server. It defines the route <code>POST /adduser</code> to add a new user.</p>
+    <p>Use the <code>GET /createdb</code> route below to create the database with user data.</p>
+
+    <div class="list-group">
+        <a href="{{ url_for("/createdb") }}" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <svg class="bi-2 align-self-center flex-shrink-0">
+                <use href="{{ get_base_path() }}/../views/images/bootstrap-icons.svg#tools"></use>
+            </svg>
+            <div class="flex-fill">
+                <h6 class="mb-0">GET /createdb</h6>
+                <p class="mb-0 opacity-75">Create the database "ue08_users" with the table "user" containing
+                    five example users.</p>
+            </div>
+        </a>
+    </div>
+{% endblock main %}
