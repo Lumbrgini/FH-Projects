@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulare</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Formulare</h1>
+  
+    <table border>
+
+      <tr>
+        <th>Name</th>
+        <th>Adresse</th>
+        <th>Telefonnummer</th>
+        <th>Email</th>
+        <th>Newsletter</th>
+        <th>Action</th>
+      </tr>
+
+      {{# issues }}
+
+        <tr>
+          <td>{{ name }}</td>
+          <td>{{ adresse }}</td>
+          <td>{{ telefonnummer }}</td>
+          <td>{{ email }}</td>
+          <td>{{ newsletter }}</td>
+          <td>
+            <a href="/edit/{{ _id }}">Edit</a>
+            <a href="/delete/{{ _id }}">Delete</a>
+          </td>
+        </tr>
+
+      {{/ issues }}
+
+    </table>
+
+    <br><br>
+    <div>
+      <a href="/new">New Formular</a>
+    </div>
+  </body>
+</html>

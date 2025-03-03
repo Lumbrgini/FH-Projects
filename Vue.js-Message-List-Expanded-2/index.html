@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HYP3 Vue Components Example</title>
+    <script src="lib/vue.global.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        #app .edit {
+            display: none
+        }
+
+        #app li.editing .edit {
+            display: inline
+        }
+
+        #app li.editing .view {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HYP3 Vue Components Example</h1>
+
+    <div id="app">
+
+        <ul>
+            <my-li v-for="(person, index) in personsData" 
+            :vorname="person.vorname" 
+            :nachname="person.nachname"
+            :key="index"
+            @delete-me="clearEntry(index)"
+            @save-me="saveEntry(index, $event)">
+            </my-li>
+
+            <div v-if="personsData.length === 0">
+                <p>Noch nichts hier...</p>
+            </div>
+
+        </ul>
+        <textarea v-model="newVorname" placeholder="Vorname"></textarea>
+        <textarea v-model="newNachname" placeholder="Nachname"></textarea><br>
+        <button @click="addPerson">Add</button>
+        <button @click="clearAll">Clear All</button>
+    </div>
+
+    <hr>
+    <p style="font-size:small">
+        Hypermedia Systems & Architecture (<a href="http://www.fh-ooe.at/mtd">MTD</a>)<br>
+    </p>
+
+    <script type="x-template" id="mytemplate">
+    <li :class="{editing: editingVorname || editingNachname}">
+        <button @click="$emit('delete-me')">x</button>
+        
+        <span class="view" @dblclick="editMeVorname">{{ vorname }} ----- </span> 
+        <input v-if="editingVorname" class="edit" v-model="myVorname" @blur="saveMeVorname" ref="myInputVorname">
+
+        <span class="view" @dblclick="editMeNachname">{{ nachname }}</span>
+        <input v-if="editingNachname" class="edit" v-model="myNachname" @blur="saveMeNachname" ref="myInputNachname">
+    </li>
+</script>
+</body>
+
+</html>

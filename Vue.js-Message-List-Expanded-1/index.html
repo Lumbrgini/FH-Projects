@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HYP3 Vue Template</title>
+    <script src="lib/vue.global.js"></script>
+  </head>
+  <body>
+    <style>
+      html{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+    <h1>HYP3 Vue Template</h1>
+
+    <div id="app">
+      <p>{{ message }}</p>
+      <ul>
+        <li v-for = "(entry, i) in notesData">
+          <button @click = "clearOneEntry(i)">X</button><em>{{ entry.date }}</em> -- {{ entry.contents }};
+        </li>
+      </ul>
+
+      <textarea v-model = "contents"></textarea><br>
+      <button @click = "saveData()">Save</button>
+      <button @click = "clearData()">Clear</button>
+      <button @click = "changeStyle()"> Change style </button>
+    </div>
+
+    <hr>
+    <p style="font-size:small">
+     Hypermedia Systems & Architecture (<a href="http://www.fh-ooe.at/mtd">MTD</a>)<br>
+    </p>
+    <script src="script.js"></script>
+  </body>
+</html>

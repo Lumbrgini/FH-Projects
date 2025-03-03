@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formular</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Formular</h1>
+
+    <ul>
+      {{# errors }}
+      <li>{{ msg }}</li>
+      {{/ errors }}
+    </ul>
+    
+    <form method="post">
+
+      <label>Name:<br>
+        <input type="text" name="name" value="{{ issue.name }}">
+      </label><br>
+
+      <label>Adresse:<br>
+        <textarea name="adresse">
+          {{ issue.adresse }}
+        </textarea>
+      </label><br>
+
+      <label>Telefonnummer:<br>
+        <input type="text"name="telefonnummer" value = "{{ issue.telefonnummer }}">
+      </label><br>
+
+      <label>Email:<br>
+        <input type="text" name="email" value = "{{ issue.email }}">
+      </label><br>
+
+      <label>Newsletter:<br>
+        <input type="checkbox" name="newsletter" value="yes" {{ issue.newsletter ? 'checked' : '' }}>
+      </label><br>
+
+      <br>
+      <input type="submit" id = "submit">
+
+    </form>
+
+  </body>
+</html>

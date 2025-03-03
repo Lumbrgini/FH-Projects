@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>HYP3 Canvas & Webworker Example</title>
+<script src="lib/vue.global.js"></script>
+<script src="script.js" defer></script>
+</head>
+
+<body>
+<h1>HYP3 Canvas & Webworker Example</h1>
+
+<div id="app">
+
+    <canvas width="400" height="300" style="border: solid black 2px" ref="drawCanvas"
+        @mousedown="startDraw"
+        @mouseup="stopDraw"
+        @mousemove="doDraw"
+        @mouseleave="stopDraw">
+    </canvas><br><br>
+    <button @click="startPrimes">Start</button>
+    <span ref="primes"></span><br>
+    <button @click = "stopPrimes">Stop</button><br>
+    <button class = "resB" @click= "resetPrimes">Reset</button>
+
+</div>
+
+<hr>
+<p style="font-size:small">
+Hypermedia Systems & Architecture (<a href="http://www.fh-ooe.at/mtd">MTD</a>)<br>
+</p>
+</body>
+</html>
